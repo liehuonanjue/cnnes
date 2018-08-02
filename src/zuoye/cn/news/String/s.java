@@ -6,7 +6,7 @@ public class s {
     public static void main(String[] args) {
         par p=new par();
         p.name();
-
+        System.out.println("ddd");
     }
 
 }
