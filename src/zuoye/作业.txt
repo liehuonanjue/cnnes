@@ -1,0 +1,225 @@
+1.xml文件的特点和书写时的注意事项
+XML声明可有可无,推荐加上 ? "?xml" 不能有空格
+XML声明作为XML文件的第一行（一定要在第一行）
+version ?version="1.0" 必须是1.0
+如果有声明，必须有version属性
+而且必须在属性列表的第一位
+2.xml文件解析的几种方式
+DOM解析；2、SAX解析；3、JDOM解析；4、DOM4J解析
+
+
+
+
+Exception
+1.什么是异常？
+异常本质上是程序上的错误，包括程序逻辑错误和系统错误
+2.什么是异常处理机制？
+异常机制已经成为判断一门编程语言是否成熟的标准，异常机制可以使程序中异常处理代码和正常业务代码分离，保证程序代码更加优雅，并提高程序健壮性。
+3.异常处理机制中的关键字，以及每个关键字使用的注意事项？
+
+         Java异常机制主要依赖于try、catch、finally、throw、throws五个关键字。
+
+         1.try：它里面放置可能引发异常的代码
+
+         2.catch：后面对应异常类型和一个代码块，用于表明该catch块用于处理这种类型的代码块，可以有多个catch块。
+
+         3.finally：主要用于回收在try块里打开的物力资源（如数据库连接、网络连接和磁盘文件），异常机制总是保证finally块总是被执行。只有finally块，执行完成之后，才会回来执行try或者catch块中的return或者throw语句，如果finally中使用了return或者   throw等终止方法的语句，则就不会跳回执行，直接停止。
+
+         4.throw：用于抛出一个实际的异常，可以单独作为语句使用，抛出一个具体的异常对象。
+
+         5.throws：用在方法签名中，用于声明该方法可能抛出的异常。
+4.谈谈受查异常和运行时异常的区别
+1. 受检查的异常(checked exceptions),其必须被 try{}catch语句块所捕获,或者在方法签名里通过throws子句声明.受检查的异常必须在编译时被捕捉处理,命名为 Checked Exception 是因为Java编译器要进行检查,Java虚拟机也要进行检查,以确保这个规则得到遵守.
+2. 运行时异常(runtime exceptions),需要程序员自己分析代码决定是否捕获和处理,比如 空指针,被0除...
+3. 而声明为Error的，则属于严重错误，如系统崩溃、虚拟机错误、动态链接失败等，这些错误无法恢复或者不可能捕捉，将导致应用程序中断，Error不需要捕捉。
+5.什么是异常链？
+异常链是一种面向对象编程技术，指将捕获的异常包装进一个新的异常中并重新抛出的异常处理方式。原异常被保存为新异常的一个属性（比如cause）。这个想法是指一个方法应该抛出定义在相同的抽象层次上的异常，但不会丢弃更低层次的信息。
+
+6.final,finalize,finally三个关键字的用途
+final
+
+当这个关键字修饰一个类时，意味着他不能派生出新的子类，也就是说不能被继承，因此一个类不能被同时声明为abstract和final。当final修饰变量或者方法时，可以保证他们在使用中不会被改变。被声明为final的变量必须在初始化时给定初值，以后在使用时只能被引用而不能被修改。同样，当final修饰一个方法时，这个方法不能被重载。
+
+finally
+
+异常处理时提供finally来执行任何清楚操作。如果抛出一个异常，那么相匹配的catch子句就会被执行，然后控制就会转入finally块。
+
+finalize
+
+方法名。finalize方法在垃圾回收器执行内存对象清理时会调用finalize()方法进行前期的清理工作。这个方法是由垃圾收集器在确定这个对象没有被引用时对这个对象调用的。它是在 Object 类中定义的，因此所有的类都继承了它。子类覆盖 finalize() 方法以整理系统资源或者执行其他清理工作。finalize() 方法是在垃圾收集器删除对象之前对这个对象调用的。
+
+7.try代码块出现return关键字之后，还回执行finally吗？ 什么时候不会执行finally？
+会执行 除非System.exit(0)
+
+
+
+
+
+
+
+io
+1.请写出对应的基类，以及和哪些类结合使用
+ 字节流：     InputStream（输入）        OutputStream（输出）  基类
+ 字符流：        Reader            Writer
+ 缓冲流：     BufferReader       BufferWriter 不单独使用    一般和Reader  Writer 联用
+ 2进制流：  DataInputStream    DataOutputStream 不单独使用  一般需要与 InputStream   OutputStream 联用
+ 序列化和反序列化： ObjectInputStream  ObjectOutputStream
+
+
+1.xml文件的特点和书写时的注意事项
+XML声明可有可无,推荐加上 ? "?xml" 不能有空格
+XML声明作为XML文件的第一行（一定要在第一行）
+version ?version="1.0" 必须是1.0
+如果有声明，必须有version属性
+而且必须在属性列表的第一位
+2.xml文件解析的几种方式
+DOM解析；2、SAX解析；3、JDOM解析；4、DOM4J解析
+
+
+
+
+Exception
+1.什么是异常？
+异常本质上是程序上的错误，包括程序逻辑错误和系统错误
+2.什么是异常处理机制？
+异常机制已经成为判断一门编程语言是否成熟的标准，异常机制可以使程序中异常处理代码和正常业务代码分离，保证程序代码更加优雅，并提高程序健壮性。
+3.异常处理机制中的关键字，以及每个关键字使用的注意事项？
+
+         Java异常机制主要依赖于try、catch、finally、throw、throws五个关键字。
+
+         1.try：它里面放置可能引发异常的代码
+
+         2.catch：后面对应异常类型和一个代码块，用于表明该catch块用于处理这种类型的代码块，可以有多个catch块。
+
+         3.finally：主要用于回收在try块里打开的物力资源（如数据库连接、网络连接和磁盘文件），异常机制总是保证finally块总是被执行。只有finally块，执行完成之后，才会回来执行try或者catch块中的return或者throw语句，如果finally中使用了return或者   throw等终止方法的语句，则就不会跳回执行，直接停止。
+
+         4.throw：用于抛出一个实际的异常，可以单独作为语句使用，抛出一个具体的异常对象。
+
+         5.throws：用在方法签名中，用于声明该方法可能抛出的异常。
+4.谈谈受查异常和运行时异常的区别
+1. 受检查的异常(checked exceptions),其必须被 try{}catch语句块所捕获,或者在方法签名里通过throws子句声明.受检查的异常必须在编译时被捕捉处理,命名为 Checked Exception 是因为Java编译器要进行检查,Java虚拟机也要进行检查,以确保这个规则得到遵守.
+2. 运行时异常(runtime exceptions),需要程序员自己分析代码决定是否捕获和处理,比如 空指针,被0除...
+3. 而声明为Error的，则属于严重错误，如系统崩溃、虚拟机错误、动态链接失败等，这些错误无法恢复或者不可能捕捉，将导致应用程序中断，Error不需要捕捉。
+5.什么是异常链？
+异常链是一种面向对象编程技术，指将捕获的异常包装进一个新的异常中并重新抛出的异常处理方式。原异常被保存为新异常的一个属性（比如cause）。这个想法是指一个方法应该抛出定义在相同的抽象层次上的异常，但不会丢弃更低层次的信息。
+
+6.final,finalize,finally三个关键字的用途
+final
+
+当这个关键字修饰一个类时，意味着他不能派生出新的子类，也就是说不能被继承，因此一个类不能被同时声明为abstract和final。当final修饰变量或者方法时，可以保证他们在使用中不会被改变。被声明为final的变量必须在初始化时给定初值，以后在使用时只能被引用而不能被修改。同样，当final修饰一个方法时，这个方法不能被重载。
+
+finally
+
+异常处理时提供finally来执行任何清楚操作。如果抛出一个异常，那么相匹配的catch子句就会被执行，然后控制就会转入finally块。
+
+finalize
+
+方法名。finalize方法在垃圾回收器执行内存对象清理时会调用finalize()方法进行前期的清理工作。这个方法是由垃圾收集器在确定这个对象没有被引用时对这个对象调用的。它是在 Object 类中定义的，因此所有的类都继承了它。子类覆盖 finalize() 方法以整理系统资源或者执行其他清理工作。finalize() 方法是在垃圾收集器删除对象之前对这个对象调用的。
+
+7.try代码块出现return关键字之后，还回执行finally吗？ 什么时候不会执行finally？
+会执行 除非System.exit(0)
+
+
+
+
+
+
+
+io
+1.请写出对应的基类，以及和哪些类结合使用
+ 字节流：     InputStream（输入）        OutputStream（输出）  基类
+ 字符流：        Reader            Writer
+ 缓冲流：     BufferReader       BufferWriter 不单独使用    一般和Reader  Writer 联用
+ 2进制流：  DataInputStream    DataOutputStream 不单独使用  一般需要与 InputStream   OutputStream 联用
+ 序列化和反序列化： ObjectInputStream  ObjectOutputStream
+
+ 2.什么是序列化和反序列化？ 什么是持久化技术？
+持久化（Persistence），即把数据（如内存中的对象）保存到可永久保存的存储设备中（如磁盘）。
+持久化的主要应用是将内存中的对象存储在关系型的数据库中，当然也可以存储在磁盘文件中、XML数据文件中等等。
+   把对象转换为字节序列的过程称为对象的序列化。
+
+    把字节序列恢复为对象的过程称为对象的反序列化。
+
+3.NIO和IO的区别？
+     NIO即New IO，这个库是在JDK1.4中才引入的。NIO和IO有相同的作用和目的，但实现方式不同，NIO主要用到的是块，所以NIO的效率要比IO高很多。在Java API中提供了两套NIO，一套是针对标准输入输出NIO，另一套就是网络编程NIO。
+	IO是面向流的，NIO是面向缓冲区的。
+	Java IO的各种流是阻塞的。Java NIO的非阻塞模式
+4.NIO包含的组件？
+Channels
+Buffer
+Selector
+
+5.NIO中的Buffer包含的属性值有那些，它们的含义？以及在读写模式下的变化？
+capacity(容量)
+作为一个内存块，Buffer有一个固定的大小值，也叫“capacity”。你只能往里写capacity个byte、long，char等类型。一旦Buffer满了，需要将其清空（通过读数据或者清除数据）才能继续写数据往里写数据。
+
+position(位置)
+当你写数据到Buffer中时，position表示当前的位置。初始的position值为0。
+当一个byte、long等数据写到Buffer 后， position会向前移动到下一个可插入数据的Buffer单元。position最大可为capacity – 1.
+当读取数据时，也是从某个特定位置读。当将Buffer从写模式切换到读模式，position会被重置为0. 当从Buffer的position处读取数据时，position向前移动到下一个可读的位置。
+
+limit(上界)
+在写模式下，Buffer的limit表示你最多能往Buffer里写多少数据。 写模式下，limit等于Buffer的capacity。
+当切换Buffer到读模式时， limit表示你最多能读到多少数据。因此，当切换Buffer到读模式时，limit会被设置成写模式下的position值。换句话说，你能读到之前写入的所有数据（limit被设置成已写数据的数量，这个值在写模式下就是position）
+
+
+
+
+log4j
+1.为什么使用log4j?
+我们的应用出现了问题，我们分析、定位、解决问题的时候；我们想将某些日志信息作为离线的业务数据分析的时候等等
+
+2.日志级别的分类？
+Off
+OFF Level 是最高等级的，用于关闭所有日志记录。
+
+FATAL 致命的错误
+FATAL level 指出每个严重的错误事件将会导致应用程序的退出。
+
+ERROR 错误
+ERROR level 指出虽然发生错误事件，但仍然不影响系统的继续运行。
+
+WARN 警告
+WARN level 表明会出现潜在错误的情形。
+
+INFO 信息
+INFO level 表明 消息在粗粒度级别上突出强调应用程序的运行过程。
+
+DEBUG 调试
+DEBUG Level 指出细粒度信息事件对调试应用程序是非常有帮助的。
+
+TRACE
+与DEBUG 相比更细致化的记录事件消息。
+
+ALL
+ALL Level 是最低等级的，用于打开所有日志记录。
+
+从高到地低
+OFF 、 FATAL 、 ERROR 、 WARN 、 INFO 、 DEBUG 、 TRACE 、 ALL
+
+
+8.日志包含那些重要组件？
+Logger，Appender和Layout，分别为日志类型，日志输出目的地，日志输出格式。
+
+9. %m  %n  %d  %l %C 代表的含义
+%m 输出代码中指定的消息
+%p 输出优先级,即DEBUG，INFO，WARN，ERROR，FATAL
+%r 输出自应用启动到输出该log信息耗费的毫秒数
+%c 输出所属的类目,通常就是所在类的全名
+%t 输出产生该日志事件的线程名
+%n 输出一个回车换行符,Windows为"rn"，Unix为"n"
+%d 输出日志时间,比如:%d{yyyy MMM ddHH:mm:ss,SSS},输出:2007年5月17日 19:30:00,000
+%l 输出日志事件的发生位置,包括类目名、发生的线程,以及在代码中的行数
+
+10.怎么在log4j配置文件中指定包下输出日志记录
+log4j.logger.cn.yzw=trace,console,file,file2
+
+
+
+
+
+1.String,StringBuffer,StringBuilder三者的区别
+首先说运行速度，或者说是执行速度，在这方面运行速度快慢为：StringBuilder > StringBuffer > String
+
+
+

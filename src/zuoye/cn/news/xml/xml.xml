@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grade> 
+  <class name="三班"> 
+    <student id="1">小黑1</student>  
+    <student id="2">小黑2</student> 
+  </class>  
+  <brand name="王班">
+    <class name="网版"/>
+  </brand>
+</grade>

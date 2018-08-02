@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--<!DOCTYPE school SYSTEM "note.dtd">-->
+<school>
+  <day01 name="java"> 
+    <class name="javaoop" address="javaoop数据库">今天讲解数据库</class>
+    <class name="javaoop" address="javaoopxml">今天讲解xml</class>
+  </day01>  
+  <day01 name="java">
+    <class name="javaoop" address="javaoop数据库">今天讲解数据库</class>
+    <class name="javaoop" address="javaoopxml">今天讲解xml</class>
+  </day01>
+  <day01 name="java">
+    <class name="javaoop" address="javaoop数据库">今天讲解数据库</class>
+    <class name="javaoop" address="javaoopxml">今天讲解xml</class>
+  </day01>
+  <day01 name="C#">
+    <class name="C#oop" address="C#xml">
+      <class name="C#1op" address="C#xml">
+        <class name="C#1op" address="C#xml">
+          <class name="C#1op" address="C#xml">
+            <class name="C#1o" address="C#xml"/>
+          </class>
+        </class>
+      </class>
+    </class>
+  </day01>
+  <brand name="w">
+    <class name="w"/>
+  </brand>
+</school>
